@@ -1,0 +1,246 @@
+@media (max-width: 370px) {
+  .App-Bar {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 555px;
+    width: 1px;
+
+    .app-bar-wrapper {
+      position: absolute;
+      width: 560px !important;
+      left: -441px !important;
+      height: 100px;
+      margin-top: 47px;
+      height: 100px;
+      background-color: #fff;
+      border-radius: 40px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      background: linear-gradient(
+        138deg,
+        rgba(121, 30, 101, 0.8823529412) 0%,
+        rgba(40, 64, 142, 0.8705882353) 82%,
+        rgba(238, 0, 255, 0.8980392157) 95%,
+        rgba(255, 255, 255, 0.9725490196) 100%
+      );
+    }
+
+    .underline-app-bar {
+      width: 561px;
+      left: -442px;
+      position: absolute;
+      height: 4px;
+      background-color: rgba(255, 255, 255, 0.368627451);
+      top: 144px;
+    }
+
+    .css-1tgcxym-MuiPaper-root {
+      position: absolute;
+      margin-top: 110px;
+      margin-left: 97px;
+      width: 363px;
+      background-color: rgba(128, 0, 128, 0.747);
+      z-index: 100 !important;
+    }
+
+    .move-DiscFullIcon {
+      position: absolute !important;
+      top: 25px;
+      left: -647px !important;
+    }
+
+    .media-app-bar-icon {
+      display: block !important;
+      position: absolute;
+      left: 418px;
+      top: 33px;
+      background-color: purple;
+      border-radius: 100px;
+    }
+  }
+  .Main-Wrapper {
+    width: 809px;
+
+    .wrapper {
+      position: relative;
+      top: 103px;
+      left: -20px;
+      width: 561px;
+      border-radius: 0px;
+      height: 2781px;
+      margin-left: 20px;
+      .card-main-place {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        position: relative;
+        top: 198px;
+        left: 157px;
+      }
+    }
+
+    .not-found-image {
+      position: absolute;
+      width: 441px;
+      left: -88px;
+      top: 92px;
+    }
+
+    .not-found-input {
+      h2 {
+        margin-left: -100px !important;
+        margin-top: 37px;
+        white-space: nowrap;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+  }
+
+  .Left-App-Side-Bar {
+    position: absolute;
+    width: 99px;
+    height: 195px;
+    left: 695px;
+    top: 146px;
+    z-index: 20;
+    background-color: rgba(255, 255, 255, 0.6901960784);
+    border-bottom-right-radius: 40px;
+    display: none;
+  }
+
+  .popup-category {
+    display: block;
+    left: 240px;
+    position: absolute;
+    width: 308px;
+    height: 52px;
+    border-radius: 71px;
+    top: 188px;
+    background-color: grey;
+    z-index: 200;
+    overflow: scroll;
+
+    .css-weg85m-JoyRadio-root {
+      color: purple;
+      padding-left: 16px;
+      padding-right: 16px;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .css-104mpf3-JoyRadio-root {
+      color: purple;
+      padding-left: 16px;
+      padding-right: 16px;
+      -webkit-align-items: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: white;
+    }
+  }
+
+  .css-i77lx5-JoyBadge-badge {
+    top: -70px !important;
+    right: -342px !important;
+  }
+
+  .media-menu-text {
+    position: relative;
+    left: 20px;
+  }
+
+  // playlist
+  .PlayList-Main {
+    margin-left: 120px;
+    position: absolute;
+    left: -6px;
+    width: 560px;
+    margin-top: 146px;
+    height: 899px;
+    background-color: #fff;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-radius: 84px;
+    background: linear-gradient(
+      138deg,
+      rgba(121, 30, 101, 0.8823529412) 0%,
+      rgba(40, 64, 142, 0.8705882353) 82%,
+      rgba(238, 0, 255, 0.8980392157) 95%,
+      rgba(255, 255, 255, 0.9725490196) 100%
+    );
+
+    .Empty-PLayList-Wrapper {
+      img {
+        margin-left: -130px;
+        margin-top: 297px;
+        width: 244px;
+        border-radius: 40px;
+        border: solid purple 5px;
+        position: absolute;
+        z-index: 1000 !important;
+      }
+    }
+
+    .Empty-PLayList-Wrapper {
+      h1 {
+        color: rgb(189, 0, 206);
+        margin-top: 201px;
+        left: 93px;
+        font-size: 37px;
+        position: absolute;
+        white-space: nowrap;
+      }
+    }
+
+    .Empty-PLayList-Wrapper {
+      p {
+        color: grey;
+        position: absolute;
+        left: 144px;
+        font-size: 21px;
+        white-space: nowrap;
+        margin-top: 248px;
+      }
+    }
+
+    .🤚 {
+      visibility: hidden;
+    }
+  }
+
+  .css-1ee1fon {
+    width: 100%;
+    position: absolute;
+    left: -49px !important;
+    top: 234px !important;
+    gap: 14px !important;
+    left: 486px !important;
+    width: 50px !important;
+  }
+
+  .css-1pu4x25-JoyModal-root {
+    bottom: 0;
+    top: -39px !important;
+    left: -110px !important;
+  }
+
+  .css-1lxxywo-JoyCard-root {
+    margin-left: 8px !important;
+  }
+
+  .css-np2uxc-JoyCard-root {
+    width: 259px !important;
+  }
+
+  .go4027089540 {
+    left: 22px;
+    top: -971px;
+    top: -943px;
+    width: 403px;
+  }
+}
