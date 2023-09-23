@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.scss';
 import './Media1920.scss';
 import './MediaPhone.scss';
@@ -36,11 +36,42 @@ export type musicCards = {
 };
 
 const App: React.FC = () => {
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
+  const [value, setValue] = useState(() => {
+    const findLS = localStorage.getItem('find');
+    const initialValue = findLS ? JSON.parse(findLS) : '';
+    return initialValue;
+  });
+
   const [filteredMusicCards, setFilteredMusicCards] = useState<musicCards[]>([]);
   const musicCardsArray: musicCards[] = [];
-  const [count, setCount] = useState<number>(0);
-  const [musicItems, setMusicItems] = useState<musicCards[]>([]);
+  const [count, setCount] = useState(() => {
+    const storedCount = localStorage.getItem('count');
+    return storedCount ? parseInt(storedCount, 10) : 0;
+  });
+  const [musicItems, setMusicItems] = useState<musicCards[]>(
+    JSON.parse(localStorage.getItem('playlist') || '[]'),
+  );
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    const findJson = JSON.stringify(value);
+    localStorage.setItem('find', findJson);
+  }, [value]);
+
+  useEffect(() => {
+    const jsonCount = JSON.stringify(count);
+    localStorage.setItem('count', jsonCount);
+  }, [count]);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const json = JSON.stringify(musicItems);
+      localStorage.setItem('playlist', json);
+    }
+
+    isMounted.current = true;
+  }, [musicItems]);
 
   const addToPlayList = (obj: musicCards) => {
     setMusicItems((prev) => [...prev, obj]);
@@ -49,8 +80,6 @@ const App: React.FC = () => {
   const onDeletePlayList = (id: number) => {
     setMusicItems((prev) => prev.filter((item) => item.id !== id));
   };
-
-  console.log(musicItems);
 
   return (
     <MyContext.Provider

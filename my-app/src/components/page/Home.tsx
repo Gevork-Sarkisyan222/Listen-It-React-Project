@@ -36,7 +36,7 @@ const Home: React.FC<HomeTypes> = ({ value, setValue, addToPlayList, onDeletePla
   useEffect(() => {
     const timeout = setTimeout(() => {
       setMusicCardIsLoding(false);
-    }, 3000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, [value]);

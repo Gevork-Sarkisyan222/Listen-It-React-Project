@@ -14,7 +14,10 @@ import AddPlayListIcon from '@mui/icons-material/Queue';
 import CheckMark from '@mui/icons-material/LibraryAddCheck';
 import { MyContext } from '../App';
 import DownloadIcon from '@mui/icons-material/Download';
-// import mySoundFile from '../musics/Despacito.mp3';
+import {
+  saveIsAddIconVisibleToLocalStorage,
+  saveIsCheckIconVisibleToLocalStorage,
+} from '.././utils/checkUtils';
 
 interface MusicCardProps {
   title: string;
@@ -39,8 +42,18 @@ const MediaControlCard: React.FC<MusicCardProps> = ({
 }) => {
   const theme = useTheme();
   const [checked, setChecked] = React.useState(true);
-  const [isAddIconVisible, setAddIconVisible] = React.useState(true);
-  const [isCheckIconVisible, setCheckIconVisible] = React.useState(false);
+  const [isAddIconVisible, setAddIconVisible] = React.useState(() => {
+    const storedValue = localStorage.getItem(`isAddIconVisible-${title}-${author}`);
+    return storedValue ? JSON.parse(storedValue) : true;
+  });
+
+  const [isCheckIconVisible, setCheckIconVisible] = React.useState(() => {
+    const storedValue = localStorage.getItem(`isCheckIconVisible-${title}-${author}`);
+    return storedValue ? JSON.parse(storedValue) : false;
+  });
+  const [isBlack, setIsBlack] = useState(
+    localStorage.getItem(`isBlack-${title}-${author}`) === 'true',
+  );
 
   const context = React.useContext(MyContext);
   const count = context?.data.count;
@@ -48,27 +61,46 @@ const MediaControlCard: React.FC<MusicCardProps> = ({
 
   const [isPlaying, setIsPlaying] = React.useState(false);
 
+  // const saveIsAddIconVisibleToLocalStorage = (value: boolean) => {
+  //   localStorage.setItem(`isAddIconVisible-${title}-${author}`, JSON.stringify(value));
+  // };
+
+  // const saveIsCheckIconVisibleToLocalStorage = (value: boolean) => {
+  //   localStorage.setItem(`isCheckIconVisible-${title}-${author}`, JSON.stringify(value));
+  // };
+
   const handleAddIconClick: () => void = () => {
     onPlus();
     setAddIconVisible(false);
     setCheckIconVisible(true);
+    saveIsAddIconVisibleToLocalStorage(title, author, false);
+    saveIsCheckIconVisibleToLocalStorage(title, author, true);
   };
 
   const handleCheckIconClick: () => void = () => {
     onDeletePlayList();
     setAddIconVisible(true);
     setCheckIconVisible(false);
+    saveIsAddIconVisibleToLocalStorage(title, author, true);
+    saveIsCheckIconVisibleToLocalStorage(title, author, false);
   };
 
   const handleDownloadClick = () => {
-    // Создаем временную ссылку на скачивание файла
     const link = document.createElement('a');
     link.href = soundFile;
-    link.download = `${title}-${author}.mp3`; // Установите имя файла для скачивания
+    link.download = `${title}-${author}.mp3`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+
+  const handleClick = () => {
+    setIsBlack(!isBlack);
+  };
+
+  React.useEffect(() => {
+    localStorage.setItem(`isBlack-${title}-${author}`, String(isBlack));
+  }, [isBlack]);
 
   return (
     <Card sx={{ display: 'flex', width: '260px' }}>
@@ -86,6 +118,22 @@ const MediaControlCard: React.FC<MusicCardProps> = ({
           <Typography variant="subtitle1" color="text.secondary" component="div">
             {author}
           </Typography>
+          <button
+            onClick={handleClick}
+            style={{
+              color: isBlack ? 'white' : 'white',
+              // backgroundColor: isBlack ? 'black' : 'white',
+              background: isBlack
+                ? 'linear-gradient(0deg, #0016bd 0%, #d600e6 100%)'
+                : 'linear-gradient(0deg, #808080 0%, #b8b8b8 100%)',
+              border: 'none',
+              borderRadius: '10px',
+              width: '99px',
+              height: '28px',
+              cursor: 'pointer',
+            }}>
+            {isBlack ? 'отмечено' : 'отметить'}
+          </button>
           <div className="play-list-icon">
             {isAddIconVisible && (
               <AddPlayListIcon

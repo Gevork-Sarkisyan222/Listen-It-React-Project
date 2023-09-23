@@ -15,6 +15,10 @@ import CheckMark from '@mui/icons-material/LibraryAddCheck';
 import TextField from '@mui/material/TextField';
 import DownloadIcon from '@mui/icons-material/Download';
 import { MyContext } from '../../App';
+import {
+  saveIsAddIconVisibleToLocalStorage,
+  saveIsCheckIconVisibleToLocalStorage,
+} from '../../utils/checkUtils';
 
 type MusicItemsArrayProps = {
   musicItems: musicCards[];
@@ -33,7 +37,16 @@ const PlayList: React.FC<MusicItemsArrayProps> = ({ musicItems = [], onDeletePla
   const theme = useTheme();
   const [currentMusicUrl, setCurrentMusicUrl] = React.useState<string | null>(null);
   const [isPlaying, setIsPlaying] = React.useState<boolean>(false);
-  const [playlistTitle, setPlaylistTitle] = useState<string>('');
+  const [playlistTitle, setPlaylistTitle] = useState(() => {
+    const storeValue = localStorage.getItem('value');
+    const initialState = storeValue ? JSON.parse(storeValue) : '';
+    return initialState;
+  });
+
+  React.useEffect(() => {
+    const listValueJson = JSON.stringify(playlistTitle);
+    localStorage.setItem('value', listValueJson);
+  }, [playlistTitle]);
 
   const handlePlayPauseClick = (musicUrl: string) => {
     if (isPlaying) {
@@ -44,8 +57,16 @@ const PlayList: React.FC<MusicItemsArrayProps> = ({ musicItems = [], onDeletePla
     }
   };
 
-  const handleDelete = (id: number) => {
-    onDeletePlayList(id);
+  const handleDelete = (id: number, title: string, author: string) => {
+    const deleteMessage = window.confirm(
+      'Вы действительно хотите удалить эту песную с вашего плейлиста?',
+    );
+
+    if (deleteMessage) {
+      onDeletePlayList(id);
+      saveIsAddIconVisibleToLocalStorage(title, author, true);
+      saveIsCheckIconVisibleToLocalStorage(title, author, false);
+    }
   };
 
   const context = React.useContext(MyContext);
@@ -82,10 +103,9 @@ const PlayList: React.FC<MusicItemsArrayProps> = ({ musicItems = [], onDeletePla
   };
 
   const handleDownloadClick = (soundFile: string) => {
-    // Создаем временную ссылку на скачивание файла
     const link = document.createElement('a');
     link.href = soundFile;
-    link.download = `${playlistTitle || 'Плейлист-Альбом'}.mp3`; // Устанавливаем имя файла для скачивания
+    link.download = `${playlistTitle || 'Плейлист-Альбом'}.mp3`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -143,7 +163,9 @@ const PlayList: React.FC<MusicItemsArrayProps> = ({ musicItems = [], onDeletePla
                           </IconButton>
                           <CheckMark
                             onClickCapture={() => setCount && setCount(count ? count - 1 : 1)}
-                            onClick={() => obj.id !== undefined && handleDelete(obj.id)}
+                            onClick={() =>
+                              obj.id !== undefined && handleDelete(obj.id, obj.title, obj.author)
+                            }
                             sx={{
                               width: '41px',
                               height: '46px',
