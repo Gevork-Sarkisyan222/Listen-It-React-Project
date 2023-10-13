@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Input from './Input';
 import Button from '@mui/material/Button';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import DiscFullIcon from '@mui/icons-material/DiscFull';
 import Badge from '@mui/joy/Badge';
 import { MyContext } from '../App';
@@ -22,6 +22,7 @@ interface ValueProps {
 
 const AppBar: React.FC<ValueProps> = ({ value, setValue }) => {
   const [notVisibleBack, setNotVisibleBack] = React.useState<boolean>(false);
+  const navigate = useNavigate();
 
   const location = useLocation();
 
@@ -45,11 +46,16 @@ const AppBar: React.FC<ValueProps> = ({ value, setValue }) => {
     setAnchorEl(null);
   };
 
+  const handleWentToWelcome = () => {
+    navigate('/Listen-It-React-Project');
+  };
+
   return (
     <>
       <div className="App-Bar">
         <div className="app-bar-wrapper">
           <img
+            onClick={handleWentToWelcome}
             className="headphones-logo"
             //   src="https://cdn-icons-png.flaticon.com/512/3355/3355318.png"
             src="https://cdn-icons-png.flaticon.com/512/3003/3003089.png"

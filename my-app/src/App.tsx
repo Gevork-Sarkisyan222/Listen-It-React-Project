@@ -5,7 +5,7 @@ import './MediaPhone.scss';
 import AppBar from './components/AppBar';
 import MusicCard from './components/MusicCard';
 import Skeletons from './components/Skeletons';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Home from './components/page/Home';
 import NotFound from './components/page/NotFound';
 import Popular from './components/leftSideBar/Popular';
@@ -37,7 +37,6 @@ export type musicCards = {
 };
 
 const App: React.FC = () => {
-  // const [value, setValue] = useState('');
   const [value, setValue] = useState(() => {
     const findLS = localStorage.getItem('find');
     const initialValue = findLS ? JSON.parse(findLS) : '';
@@ -98,6 +97,7 @@ const App: React.FC = () => {
         <AppBar value={value} setValue={setValue} />
 
         <Routes>
+          <Route path="/Listen-It-React-Project" element={<Welcome />} />
           <Route
             path="/"
             element={
@@ -109,7 +109,6 @@ const App: React.FC = () => {
               />
             }
           />
-          <Route path="/Listen-It-React-Project" element={<Welcome />} />
           <Route
             path="/Popular-Category"
             element={<Popular onDeletePlayList={onDeletePlayList} addToPlayList={addToPlayList} />}
