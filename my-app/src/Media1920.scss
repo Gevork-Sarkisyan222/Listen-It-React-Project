@@ -1,4 +1,25 @@
 @media (min-width: 1920px) {
+  .Welcome-Main {
+    .title-content {
+      margin-top: 228px;
+      margin-left: -354px;
+      width: 700px;
+      height: 450px;
+      color: white;
+
+      h1 {
+        font-size: 72.016px;
+      }
+    }
+    .main {
+      top: 244px;
+    }
+  }
+
+  .Down-Welcome-Main {
+    height: 150vh;
+  }
+
   .wrapper {
     height: 1192px !important;
     border-radius: 70px !important;

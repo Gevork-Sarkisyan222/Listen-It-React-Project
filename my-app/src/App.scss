@@ -1,3 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat&family=Roboto:ital,wght@1,500&display=swap');
+
+.Welcome-Main {
+  position: relative;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: url('https://png.pngtree.com/background/20230416/original/pngtree-website-purple-geometric-background-picture-image_2443564.jpg');
+  background-position: 100%;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+
+  .title-content {
+    margin-top: 70px;
+    margin-left: -354px;
+    width: 700px;
+    height: 450px;
+    color: white;
+
+    .buttons-section {
+      display: flex;
+      gap: 14px;
+    }
+
+    h1 {
+      color: var(--text-color, #394264);
+      font-family: Montserrat;
+      font-size: 69.016px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 95.194px;
+      letter-spacing: 0.238px;
+
+      &:hover {
+        text-shadow: 5px 2px white;
+        transition: 1s;
+        cursor: pointer;
+      }
+    }
+
+    p {
+      color: var(--second-text-color, #737373);
+      font-family: Montserrat;
+      font-size: 23.799px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 35.698px; /* 150% */
+      letter-spacing: 0.238px;
+    }
+
+    .first-button {
+      padding: 17.849px 42.837px;
+      flex-direction: column;
+      cursor: pointer;
+      align-items: center;
+      gap: 11.899px;
+      border-radius: 44.027px;
+      background: linear-gradient(0deg, #001475 0%, #b80074 100%);
+      color: var(--light-text-color, #fff);
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 16.659px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 26.178px; /* 157.143% */
+      letter-spacing: 0.238px;
+    }
+    .second-button {
+      padding: 17.849px 42.837px;
+      cursor: pointer;
+      flex-direction: column;
+      align-items: center;
+      gap: 11.899px;
+      background: linear-gradient(0deg, #808080 0%, #ffffff 100%);
+      border-radius: 44.027px;
+      border: 1.19px solid var(--primary-color, #23a6f0);
+      color: var(--primary-color, #23a6f0);
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 16.659px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 26.178px; /* 157.143% */
+      letter-spacing: 0.238px;
+    }
+  }
+
+  .main {
+    background-color: white;
+    padding: 1em;
+    padding-bottom: 1.1em;
+    border-radius: 15px;
+    height: 400px;
+    margin: 1em;
+    margin-left: -306px;
+    top: 64px;
+    position: relative;
+    left: 309px;
+    width: 313px;
+
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .loader {
+    display: flex;
+    flex-direction: row;
+    height: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    transform: rotate(180deg);
+    justify-content: right;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+  }
+
+  .loader:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+
+  .currentplaying {
+    display: flex;
+    margin: 1em;
+  }
+
+  .spotify {
+    width: 50px;
+    height: 50px;
+    margin-right: 0.6em;
+  }
+
+  .heading {
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    align-self: center;
+    margin-left: 19px;
+    margin-top: 10px;
+  }
+
+  .loading {
+    display: flex;
+    margin-top: 1em;
+    margin-left: 0.3em;
+  }
+
+  .load {
+    width: 2px;
+    height: 33px;
+    background-color: limegreen;
+    animation: 1s move6 infinite;
+    border-radius: 5px;
+    margin: 0.1em;
+  }
+
+  .load:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .load:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .load:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+
+  .play {
+    position: relative;
+    left: 0.35em;
+    height: 1.6em;
+    width: 1.6em;
+    clip-path: polygon(50% 50%, 100% 50%, 75% 6.6%);
+    background-color: black;
+    transform: rotate(-90deg);
+    align-self: center;
+    margin-top: 0.7em;
+    justify-self: center;
+  }
+
+  .albumcover {
+    position: relative;
+    margin-right: 1em;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(233, 232, 232);
+    align-self: center;
+    border-radius: 5px;
+  }
+
+  .song {
+    position: relative;
+    transform: rotate(180deg);
+    margin-right: 1em;
+    color: black;
+    align-self: center;
+  }
+
+  .artist {
+    font-size: 0.6em;
+  }
+
+  @keyframes move6 {
+    0% {
+      height: 0.2em;
+    }
+
+    25% {
+      height: 0.7em;
+    }
+
+    50% {
+      height: 1.5em;
+    }
+
+    100% {
+      height: 0.2em;
+    }
+  }
+}
+
+.Down-Welcome-Main {
+  justify-content: center;
+  margin-top: -174px;
+  display: flex;
+  width: 100%;
+  height: 230vh;
+  background-image: url('https://png.pngtree.com/background/20210712/original/pngtree-cool-colorful-galaxy-backgrounds-picture-image_1180945.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 200px;
+
+  .first-title-block {
+    width: 418px;
+    height: 560px;
+    margin-left: -705px;
+    margin-top: 260px;
+
+    h1 {
+      color: var(--text-color, #70768d);
+
+      font-family: Lato;
+      font-size: 88px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+
+      &:hover {
+        text-shadow: 5px 2px white;
+        transition: 1s;
+        cursor: pointer;
+      }
+    }
+
+    p {
+      color: var(--second-text-color, #737373);
+
+      font-family: Lato;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 32px;
+    }
+  }
+
+  .Radius-images {
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    margin-top: 175px;
+    margin-left: 520px;
+
+    .First-images-content {
+      width: 348px;
+      right: 0px;
+      height: 473px;
+      border: 2px solid rgb(255, 255, 255);
+      position: relative;
+      border-bottom-left-radius: 140px;
+      border-bottom-right-radius: 140px;
+      background-image: url('https://img.freepik.com/premium-photo/colorful-headphone-with-black-headphone-air_914455-74.jpg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .Second-images-content {
+      position: relative;
+      right: 0px;
+      width: 348px;
+      height: 473px;
+      border: 2px solid rgb(255, 255, 255);
+      border-bottom-left-radius: 140px;
+      border-bottom-right-radius: 140px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('https://img.freepik.com/premium-photo/a-colorful-illustration-of-a-man-with-headphones-and-sunglasses_925218-1606.jpg');
+    }
+  }
+
+  .left-content-info {
+    position: absolute;
+    margin-top: 720px;
+    padding: 54px;
+    margin-left: 500px;
+    width: 495px;
+    height: 492px;
+    border-radius: 48px;
+    background: linear-gradient(
+      174deg,
+      rgba(0, 0, 0, 0.2) 6.38%,
+      rgba(0, 0, 0, 0.2) 62.72%,
+      rgba(0, 0, 0, 0) 95.47%
+    );
+
+    backdrop-filter: blur(8px);
+
+    h1 {
+      text-align: center;
+      color: #fff;
+
+      font-family: Montserrat;
+      font-size: 72px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 86px;
+
+      &:hover {
+        text-shadow: 8px 7px rgb(23, 0, 126);
+        transition: 1.2s;
+        cursor: pointer;
+      }
+    }
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 13rem;
+      overflow: hidden;
+      height: 3rem;
+      background-size: 300% 300%;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+      transition: 0.5s;
+      animation: gradient_301 5s ease infinite;
+      border: double 4px transparent;
+      background-image: linear-gradient(#212121, #212121),
+        linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+    }
+
+    #container-stars {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: 0.5s;
+      backdrop-filter: blur(1rem);
+      border-radius: 5rem;
+    }
+
+    strong {
+      z-index: 2;
+      font-family: 'Avalors Personal Use';
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: #ffffff;
+      text-shadow: 0 0 4px white;
+    }
+
+    #glow {
+      position: absolute;
+      display: flex;
+      width: 12rem;
+    }
+
+    .circle {
+      width: 100%;
+      height: 30px;
+      filter: blur(2rem);
+      animation: pulse_3011 4s infinite;
+      z-index: -1;
+    }
+
+    .circle:nth-of-type(1) {
+      background: rgba(254, 83, 186, 0.636);
+    }
+
+    .circle:nth-of-type(2) {
+      background: rgba(142, 81, 234, 0.704);
+    }
+
+    .btn:hover #container-stars {
+      z-index: 1;
+      background-color: #212121;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .btn:active {
+      border: double 4px #fe53bb;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      animation: none;
+    }
+
+    .btn:active .circle {
+      background: #fe53bb;
+    }
+
+    #stars {
+      position: relative;
+      background: transparent;
+      width: 200rem;
+      height: 200rem;
+    }
+
+    #stars::after {
+      content: '';
+      position: absolute;
+      top: -10rem;
+      left: -100rem;
+      width: 100%;
+      height: 100%;
+      animation: animStarRotate 90s linear infinite;
+    }
+
+    #stars::after {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+    }
+
+    #stars::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 170%;
+      height: 500%;
+      animation: animStar 60s linear infinite;
+    }
+
+    #stars::before {
+      background-image: radial-gradient(#ffffff 1px, transparent 1%);
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+
+    @keyframes animStar {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-135rem);
+      }
+    }
+
+    @keyframes animStarRotate {
+      from {
+        transform: rotate(360deg);
+      }
+
+      to {
+        transform: rotate(0);
+      }
+    }
+
+    @keyframes gradient_301 {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes pulse_3011 {
+      0% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+      }
+
+      100% {
+        transform: scale(0.75);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
+    }
+
+    p {
+      color: #7e7e7e;
+
+      font-family: Montserrat;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 32px;
+    }
+  }
+  .Email-Help-Form {
+    position: absolute;
+    margin-right: 730px;
+    margin-top: 900px;
+
+    .form-container {
+      width: 400px;
+      background: linear-gradient(#212121, #212121) padding-box,
+        linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+      border: 2px solid transparent;
+      padding: 32px 24px;
+      font-size: 14px;
+      font-family: inherit;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-sizing: border-box;
+      border-radius: 16px;
+    }
+
+    .form-container button:active {
+      scale: 0.95;
+    }
+
+    .form-container .form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-container .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .form-container .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #717171;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .form-container .form-group input {
+      width: 266px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      background-color: transparent;
+      border: 1px solid #414141;
+    }
+
+    .form-container .form-group textarea {
+      width: 300px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      resize: none;
+      color: #fff;
+      height: 96px;
+      border: 1px solid #414141;
+      background-color: transparent;
+      font-family: inherit;
+    }
+
+    .form-container .form-group input::placeholder {
+      opacity: 0.5;
+    }
+
+    .form-container .form-group input:focus {
+      outline: none;
+      border-color: #e81cff;
+    }
+
+    .form-container .form-group textarea:focus {
+      outline: none;
+      border-color: #e81cff;
+    }
+
+    .form-container .form-submit-btn {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      align-self: flex-start;
+      font-family: inherit;
+      color: #717171;
+      font-weight: 600;
+      width: 40%;
+      background: #313131;
+      border: 1px solid #414141;
+      padding: 12px 16px;
+      font-size: inherit;
+      gap: 8px;
+      margin-top: 8px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .form-container .form-submit-btn:hover {
+      background-color: #fff;
+      border-color: #fff;
+    }
+  }
+}
+
 .Main-Wrapper {
   display: flex;
   justify-content: center;

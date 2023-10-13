@@ -13,6 +13,7 @@ import Legendary from './components/leftSideBar/Legendary';
 import Old from './components/leftSideBar/Old';
 import { createContext } from 'react';
 import PlayList from './components/page/PlayList';
+import Welcome from './Welcome';
 
 type MyContextValue = {
   data: {
@@ -108,6 +109,7 @@ const App: React.FC = () => {
               />
             }
           />
+          <Route path="/Listen-It-React-Project" element={<Welcome />} />
           <Route
             path="/Popular-Category"
             element={<Popular onDeletePlayList={onDeletePlayList} addToPlayList={addToPlayList} />}

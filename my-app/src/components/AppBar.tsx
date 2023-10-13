@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Input from './Input';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import DiscFullIcon from '@mui/icons-material/DiscFull';
 import Badge from '@mui/joy/Badge';
 import { MyContext } from '../App';
@@ -22,6 +22,8 @@ interface ValueProps {
 
 const AppBar: React.FC<ValueProps> = ({ value, setValue }) => {
   const [notVisibleBack, setNotVisibleBack] = React.useState<boolean>(false);
+
+  const location = useLocation();
 
   const handleVisible: () => void = () => {
     setNotVisibleBack(true);
@@ -114,75 +116,77 @@ const AppBar: React.FC<ValueProps> = ({ value, setValue }) => {
         <ChooseButton />
       </div>
 
-      <div className="Left-App-Side-Bar">
-        <div className="side-bar-wrapper">
-          {notVisibleBack && (
-            <Link to="/">
-              <Button onClick={() => setNotVisibleBack(false)} variant="text">
+      {location.pathname !== '/Listen-It-React-Project' && (
+        <div className="Left-App-Side-Bar">
+          <div className="side-bar-wrapper">
+            {notVisibleBack && (
+              <Link to="/">
+                <Button onClick={() => setNotVisibleBack(false)} variant="text">
+                  <span
+                    style={{
+                      whiteSpace: 'nowrap',
+                      fontSize: '12px',
+                      zIndex: '1000',
+                      color: 'rgb(209, 0, 181)',
+                    }}>
+                    Назад
+                  </span>
+                </Button>
+              </Link>
+            )}
+
+            <Link to="/Popular-Category">
+              <Button onClick={handleVisible} variant="text">
+                <span style={{ whiteSpace: 'nowrap', fontSize: '12px', color: 'rgb(92,39,112)' }}>
+                  Популярные песни
+                </span>
+              </Button>
+            </Link>
+
+            <Link to="/Legendary-Category">
+              <Button onClick={handleVisible} variant="text">
+                <span style={{ whiteSpace: 'nowrap', fontSize: '12px', color: 'rgb(92,39,112)' }}>
+                  Легендарные песни
+                </span>
+              </Button>
+            </Link>
+
+            <Link to="/Old-Category">
+              <Button onClick={handleVisible} variant="text">
                 <span
                   style={{
                     whiteSpace: 'nowrap',
                     fontSize: '12px',
                     zIndex: '1000',
-                    color: 'rgb(209, 0, 181)',
+                    color: 'rgb(92,39,112)',
                   }}>
-                  Назад
+                  Старые песни
                 </span>
               </Button>
             </Link>
-          )}
+            <Modal />
 
-          <Link to="/Popular-Category">
-            <Button onClick={handleVisible} variant="text">
-              <span style={{ whiteSpace: 'nowrap', fontSize: '12px', color: 'rgb(92,39,112)' }}>
-                Популярные песни
-              </span>
-            </Button>
-          </Link>
+            <AccauntModal />
 
-          <Link to="/Legendary-Category">
-            <Button onClick={handleVisible} variant="text">
-              <span style={{ whiteSpace: 'nowrap', fontSize: '12px', color: 'rgb(92,39,112)' }}>
-                Легендарные песни
-              </span>
-            </Button>
-          </Link>
-
-          <Link to="/Old-Category">
-            <Button onClick={handleVisible} variant="text">
-              <span
-                style={{
-                  whiteSpace: 'nowrap',
-                  fontSize: '12px',
-                  zIndex: '1000',
-                  color: 'rgb(92,39,112)',
-                }}>
-                Старые песни
-              </span>
-            </Button>
-          </Link>
-          <Modal />
-
-          <AccauntModal />
-
-          <a
-            href="https://www.shazam.com/ru/charts/top-200/world"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Button variant="text">
-              <span
-                style={{
-                  whiteSpace: 'nowrap',
-                  fontSize: '12px',
-                  zIndex: '1000',
-                  color: 'rgb(92,39,112)',
-                }}>
-                Топ песни
-              </span>
-            </Button>
-          </a>
+            <a
+              href="https://www.shazam.com/ru/charts/top-200/world"
+              target="_blank"
+              rel="noopener noreferrer">
+              <Button variant="text">
+                <span
+                  style={{
+                    whiteSpace: 'nowrap',
+                    fontSize: '12px',
+                    zIndex: '1000',
+                    color: 'rgb(92,39,112)',
+                  }}>
+                  Топ песни
+                </span>
+              </Button>
+            </a>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
