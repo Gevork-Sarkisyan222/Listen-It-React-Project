@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Listen-It-React-Project/static/css/main.5520be0f.css",
-    "main.js": "/Listen-It-React-Project/static/js/main.0e6d51a3.js",
+    "main.css": "/Listen-It-React-Project/static/css/main.7e3ee517.css",
+    "main.js": "/Listen-It-React-Project/static/js/main.9b9cf8d2.js",
     "static/js/787.28cb0dcd.chunk.js": "/Listen-It-React-Project/static/js/787.28cb0dcd.chunk.js",
     "static/media/Deep_Purple_-_Smoke_On_The_Water_(musmore.com).mp3": "/Listen-It-React-Project/static/media/Deep_Purple_-_Smoke_On_The_Water_(musmore.com).84ce68bd41b304a1d982.mp3",
     "static/media/Eagles-Hotel-California.mp3": "/Listen-It-React-Project/static/media/Eagles-Hotel-California.35186ef50ad046358981.mp3",
@@ -27,12 +27,12 @@
     "static/media/Faded.mp3": "/Listen-It-React-Project/static/media/Faded.b553d073a357849d4ee3.mp3",
     "static/media/TakeItEasy.mp3": "/Listen-It-React-Project/static/media/TakeItEasy.f2f60a82239c06317221.mp3",
     "index.html": "/Listen-It-React-Project/index.html",
-    "main.5520be0f.css.map": "/Listen-It-React-Project/static/css/main.5520be0f.css.map",
-    "main.0e6d51a3.js.map": "/Listen-It-React-Project/static/js/main.0e6d51a3.js.map",
+    "main.7e3ee517.css.map": "/Listen-It-React-Project/static/css/main.7e3ee517.css.map",
+    "main.9b9cf8d2.js.map": "/Listen-It-React-Project/static/js/main.9b9cf8d2.js.map",
     "787.28cb0dcd.chunk.js.map": "/Listen-It-React-Project/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5520be0f.css",
-    "static/js/main.0e6d51a3.js"
+    "static/css/main.7e3ee517.css",
+    "static/js/main.9b9cf8d2.js"
   ]
 }
