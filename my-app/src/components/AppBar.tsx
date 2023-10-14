@@ -67,7 +67,9 @@ const AppBar: React.FC<ValueProps> = ({ value, setValue }) => {
 
           <Input value={value} setValue={setValue} />
 
-          <Badge sx={{ position: 'absolute', left: '50px' }} badgeContent={count}></Badge>
+          <Badge
+            sx={{ position: 'absolute', right: '86px', top: '26px' }}
+            badgeContent={count}></Badge>
           <Tooltip
             className="tooltip-title"
             title={

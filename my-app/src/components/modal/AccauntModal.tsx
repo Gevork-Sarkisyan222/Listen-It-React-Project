@@ -41,7 +41,10 @@ export default function BasicModal() {
             resize: 'horizontal',
             '--icon-size': '100px',
           }}>
-          <CardOverflow variant="solid" color="warning">
+          <CardOverflow
+            sx={{ background: 'linear-gradient(90deg, #8d00a2 0%, #6200ce 100%)' }}
+            variant="solid"
+            color="warning">
             <AspectRatio
               variant="outlined"
               color="warning"
